@@ -17,7 +17,6 @@
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%;margin:0}
 
-  /* Fundo da página: bege pastel → rose gold */
   body{
     font-family:"Montserrat",sans-serif;
     display:flex;
@@ -46,12 +45,16 @@
     border: 1px solid rgba(224,183,176,0.25);
   }
 
+  /* LOGO AGORA FUNCIONA NO GITHUB PAGES */
   .logo img{
     width:270px;
     max-width:90%;
     height:auto;
     margin-bottom:18px;
     filter: drop-shadow(0 6px 16px rgba(212,163,115,0.35));
+    border-radius: 50%;
+    object-fit: contain;
+    background: transparent;
   }
 
   .owner-banner{
@@ -68,13 +71,8 @@
     margin-bottom:26px;
   }
 
-  .links{
-    display:flex;
-    flex-direction:column;
-    gap:20px;
-  }
+  .links{display:flex;flex-direction:column;gap:20px}
 
-  /* BOTÕES EM DEGRADÊ DOURADO */
   .btn{
     position:relative;
     display:flex;
@@ -91,18 +89,15 @@
     width:100%;
     text-align:left;
     transition:all .3s ease;
-    /* Fundo dourado com degradê */
     background: linear-gradient(135deg, #f5e1c1 0%, #e8c59a 30%, #e0b7b0 70%, #d9a68f 100%);
     box-shadow: 0 10px 30px rgba(180,120,100,0.3);
   }
 
-  /* Efeito ao passar o mouse */
   .btn:hover{
     transform: translateY(-8px) scale(1.03);
     box-shadow: 0 28px 70px rgba(180,100,100,0.4);
   }
 
-  /* Brilho ao passar o mouse */
   .btn::before{
     content:"";
     position:absolute;
@@ -112,9 +107,7 @@
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4));
     transition: 0.6s;
   }
-  .btn:hover::before{
-    left:100%;
-  }
+  .btn:hover::before{left:100%}
 
   .btn .btn-face{
     width:68px;height:68px;
@@ -122,9 +115,7 @@
     background:linear-gradient(135deg,#fffaf0,#f0e6dc);
     border:3px solid rgba(255,255,255,0.4);
     box-shadow:0 8px 18px rgba(0,0,0,0.2), inset 0 4px 8px rgba(255,255,255,0.8);
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    display:flex;align-items:center;justify-content:center;
     font-size:29px;
     color:#d4a373 !important;
     flex-shrink:0;
@@ -144,7 +135,6 @@
   .btn .label .title{font-size:17px;color:#2d1b1b}
   .btn .label .subtitle{font-size:13px;color:#5c3a3a;margin-top:5px}
 
-  /* Footer em preto com coração */
   footer{
     margin-top:32px;
     font-size:13px;
@@ -180,8 +170,15 @@
 <body>
 
   <main class="wrapper">
+    <!-- LOGO CORRIGIDA PARA FUNCIONAR NO GITHUB PAGES -->
     <div class="logo">
-      <img src="logo.png" alt="Ilha Fashion">
+      <!-- MUDE AQUI O NOME EXATO do seu arquivo de logo (com letras minúsculas e extensão correta) -->
+      <img src="logo.png" alt="Ilha Fashion" onerror="this.style.display='none'; document.getElementById('fallback-logo').style.display='block';">
+      
+      <!-- LOGO DE RESPALDO caso a imagem não carregue -->
+      <div id="fallback-logo" style="display:none; font-family:'Playfair Display',serif; font-size:48px; color:#d4a373; font-weight:700; letter-spacing:2px;">
+        Ilha Fashion
+      </div>
     </div>
 
     <div class="owner-banner">
