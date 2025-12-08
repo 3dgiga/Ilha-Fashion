@@ -146,23 +146,28 @@
     box-shadow:0 10px 30px rgba(0,0,0,0.3);
   }
   .toast.show{opacity:1;transform:translateX(-50%) translateY(-12px)}
+  .logo-fallback{
+    font-family:'Playfair Display',serif;
+    font-size:48px;
+    color:#d4a373;
+    font-weight:700;
+    margin:20px 0;
+    text-shadow: 0 4px 12px rgba(212,163,115,0.3);
+    display:none;
+  }
   @media (max-width:420px){
     .wrapper{padding:28px 18px}
     .btn .btn-face{width:60px;height:60px;font-size:26px}
     .logo img{width:240px}
+    .logo-fallback{font-size:40px}
   }
 </style>
 </head>
 <body>
   <main class="wrapper">
-    <!-- CORRIGIDO: classe certa + src correto + fallback funcionando -->
     <div class="logo">
-      <img src="logo.jpg" alt="Ilha Fashion">
-      
-      <!-- Fallback caso a imagem não carregue (opcional, mas seguro) -->
-      <div style="display:none; font-family:'Playfair Display',serif; font-size:48px; color:#d4a373; font-weight:700; margin:20px 0;">
-        Ilha Fashion
-      </div>
+      <img src="./logo.jpg" alt="Ilha Fashion" onerror="this.style.display='none'; document.querySelector('.logo-fallback').style.display='block';">
+      <div class="logo-fallback">Ilha Fashion</div>
     </div>
 
     <div class="owner-banner">
