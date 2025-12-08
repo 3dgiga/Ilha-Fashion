@@ -16,7 +16,6 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{height:100%;margin:0}
-
   body{
     font-family:"Montserrat",sans-serif;
     display:flex;
@@ -24,14 +23,13 @@
     justify-content:center;
     min-height:100vh;
     padding:20px;
-    background: linear-gradient(135deg, 
-      #faf4ed 0%, 
-      #f5ece4 30%, 
-      #f0e2db 60%, 
-      #e8d5d0 80%, 
+    background: linear-gradient(135deg,
+      #faf4ed 0%,
+      #f5ece4 30%,
+      #f0e2db 60%,
+      #e8d5d0 80%,
       #e0b7b0 100%);
   }
-
   .wrapper{
     width:100%;
     max-width:420px;
@@ -44,8 +42,6 @@
     box-shadow: 0 20px 60px rgba(180,130,140,0.22);
     border: 1px solid rgba(224,183,176,0.25);
   }
-
-  /* LOGO AGORA FUNCIONA NO GITHUB PAGES */
   .logo img{
     width:270px;
     max-width:90%;
@@ -56,7 +52,6 @@
     object-fit: contain;
     background: transparent;
   }
-
   .owner-banner{
     display:inline-block;
     background:rgba(224,183,176,0.55);
@@ -70,9 +65,7 @@
     border:1px solid rgba(212,163,115,0.4);
     margin-bottom:26px;
   }
-
   .links{display:flex;flex-direction:column;gap:20px}
-
   .btn{
     position:relative;
     display:flex;
@@ -92,12 +85,10 @@
     background: linear-gradient(135deg, #f5e1c1 0%, #e8c59a 30%, #e0b7b0 70%, #d9a68f 100%);
     box-shadow: 0 10px 30px rgba(180,120,100,0.3);
   }
-
   .btn:hover{
     transform: translateY(-8px) scale(1.03);
     box-shadow: 0 28px 70px rgba(180,100,100,0.4);
   }
-
   .btn::before{
     content:"";
     position:absolute;
@@ -108,7 +99,6 @@
     transition: 0.6s;
   }
   .btn:hover::before{left:100%}
-
   .btn .btn-face{
     width:68px;height:68px;
     border-radius:50%;
@@ -131,10 +121,8 @@
   }
   .btn .btn-face::before{left:21%;top:34%}
   .btn .btn-face::after{right:21%;bottom:34%}
-
   .btn .label .title{font-size:17px;color:#2d1b1b}
   .btn .label .subtitle{font-size:13px;color:#5c3a3a;margin-top:5px}
-
   footer{
     margin-top:32px;
     font-size:13px;
@@ -142,7 +130,6 @@
     font-weight:600;
     letter-spacing:0.5px;
   }
-
   .toast{
     position:fixed;
     left:50%;transform:translateX(-50%);
@@ -159,7 +146,6 @@
     box-shadow:0 10px 30px rgba(0,0,0,0.3);
   }
   .toast.show{opacity:1;transform:translateX(-50%) translateY(-12px)}
-
   @media (max-width:420px){
     .wrapper{padding:28px 18px}
     .btn .btn-face{width:60px;height:60px;font-size:26px}
@@ -168,15 +154,13 @@
 </style>
 </head>
 <body>
-
   <main class="wrapper">
-    <!-- LOGO CORRIGIDA PARA FUNCIONAR NO GITHUB PAGES -->
-    <div class="logo.jpg">
-      <!-- MUDE AQUI O NOME EXATO do seu arquivo de logo (com letras minúsculas e extensão correta) -->
-      <img src="logo.jpg" alt="Ilha Fashion" onerror="this.style.display='none'; document.getElementById('fallback-logo').style.display='block';">
+    <!-- CORRIGIDO: classe certa + src correto + fallback funcionando -->
+    <div class="logo">
+      <img src="logo.jpg" alt="Ilha Fashion">
       
-      <!-- LOGO DE RESPALDO caso a imagem não carregue -->
-      <div id="fallback-logo" style="display:none; font-family:'Playfair Display',serif; font-size:48px; color:#d4a373; font-weight:700; letter-spacing:2px;">
+      <!-- Fallback caso a imagem não carregue (opcional, mas seguro) -->
+      <div style="display:none; font-family:'Playfair Display',serif; font-size:48px; color:#d4a373; font-weight:700; margin:20px 0;">
         Ilha Fashion
       </div>
     </div>
@@ -193,7 +177,6 @@
           <div class="subtitle">@ilhafashiion</div>
         </div>
       </a>
-
       <a class="btn" href="https://wa.me/5527998942072" target="_blank" rel="noopener">
         <div class="btn-face"><i class="fab fa-whatsapp"></i></div>
         <div class="label">
@@ -201,7 +184,6 @@
           <div class="subtitle">+55 27 99894-2072</div>
         </div>
       </a>
-
       <button id="pixBtn" class="btn" type="button">
         <div class="btn-face"><i class="fas fa-money-bill-wave"></i></div>
         <div class="label">
@@ -209,7 +191,6 @@
           <div class="subtitle">Copiar número para transferência</div>
         </div>
       </button>
-
       <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Av.+Francisco+Pereira+de+Carvalho,+1872,+Guriri+Norte,+São+Mateus+-+ES,+29946-570" target="_blank" rel="noopener">
         <div class="btn-face"><i class="fas fa-map-marked-alt"></i></div>
         <div class="label">
@@ -229,13 +210,11 @@
     const pixBtn = document.getElementById('pixBtn');
     const toast = document.getElementById('toast');
     const pixNumber = '27998942072';
-
     function show(msg){
       toast.textContent = msg;
       toast.classList.add('show');
       setTimeout(()=>toast.classList.remove('show'), 2200);
     }
-
     pixBtn.addEventListener('click', async () => {
       try{
         await navigator.clipboard.writeText(pixNumber);
@@ -253,5 +232,3 @@
 </script>
 </body>
 </html>
-
-
