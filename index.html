@@ -43,32 +43,36 @@
     box-shadow: 0 20px 60px rgba(180,130,140,0.22);
     border: 1px solid rgba(224,183,176,0.25);
   }
+  .logo{
+    background: rgba(0,0,0,0.85);
+    padding: 20px 30px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+  }
   .logo img{
-    width:300px;
+    width:270px;
     max-width:90%;
-    height:300px;
-    margin-bottom:18px;
+    height:auto;
+    margin-bottom:15px;
     filter: drop-shadow(0 6px 16px rgba(212,163,115,0.35));
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center;
+    object-fit: contain;
     background: transparent;
     display: block;
     margin-left: auto;
     margin-right: auto;
   }
   .owner-banner{
-    display:inline-block;
-    background:rgba(224,183,176,0.55);
-    color:#2d1b1b;
-    font-weight:600;
-    font-size:14px;
+    display:block;
+    background:transparent;
+    color:#ffffff;
+    font-weight:700;
+    font-size:16px;
     letter-spacing:0.8px;
-    padding:10px 24px;
-    border-radius:30px;
-    backdrop-filter:blur(8px);
-    border:1px solid rgba(212,163,115,0.4);
-    margin-bottom:26px;
+    padding:0;
+    border-radius:0;
+    backdrop-filter:none;
+    border:none;
+    margin-bottom:8px;
   }
   .links{display:flex;flex-direction:column;gap:20px}
   .btn{
@@ -139,8 +143,8 @@
   .btn .label .subtitle{font-size:13px;color:#5c3a3a;margin-top:5px}
   footer{
     margin-top:32px;
-    font-size:13px;
-    color:#2d1b1b;
+    font-size:15px;
+    color:#ffffff;
     font-weight:600;
     letter-spacing:0.5px;
   }
@@ -182,10 +186,10 @@
     <div class="logo">
       <img src="./logo.png" alt="Ilha Fashion" onerror="this.style.display='none'; document.querySelector('.logo-fallback').style.display='block';">
       <div class="logo-fallback">Ilha Fashion</div>
-    </div>
-
-    <div class="owner-banner">
-      Danielly Fernandes – Moda & Acessórios
+      <div class="owner-banner">
+        Danielly Fernandes – Moda & Acessórios
+      </div>
+      <footer style="margin-top:8px;font-size:15px">Ilha Fashion - Vista-se de amor</footer>
     </div>
 
     <section class="links">
@@ -218,8 +222,6 @@
         </div>
       </a>
     </section>
-
-    <footer>Ilha Fashion - Vista-se de amor</footer>
   </main>
 
   <div id="toast" class="toast">PIX copiado!</div>
