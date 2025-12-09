@@ -56,7 +56,6 @@
     margin-bottom:15px;
     filter: drop-shadow(0 6px 16px rgba(212,163,115,0.35));
     object-fit: contain;
-    background: transparent;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -69,9 +68,6 @@
     font-size:16px;
     letter-spacing:0.8px;
     padding:0;
-    border-radius:0;
-    backdrop-filter:none;
-    border:none;
     margin-bottom:8px;
   }
   .links{display:flex;flex-direction:column;gap:20px}
@@ -92,7 +88,7 @@
     text-align:left;
     transition:all .4s cubic-bezier(0.34, 1.56, 0.64, 1);
     background: linear-gradient(135deg, #f5e1c1 0%, #e8c59a 30%, #e0b7b0 70%, #d9a68f 100%);
-    box-shadow: 
+    box-shadow:
       0 15px 35px rgba(180,120,100,0.4),
       0 5px 15px rgba(0,0,0,0.2),
       inset 0 -3px 8px rgba(0,0,0,0.15),
@@ -101,98 +97,72 @@
   }
   .btn:hover{
     transform: translateY(-15px) perspective(1000px) rotateX(5deg) scale(1.03);
-    box-shadow: 
-      0 35px 70px rgba(180,100,100,0.5),
-      0 15px 30px rgba(0,0,0,0.3),
-      inset 0 -3px 8px rgba(0,0,0,0.2),
-      inset 0 3px 12px rgba(255,255,255,0.5);
+    box-shadow: 0 35px 70px rgba(180,100,100,0.5), 0 15px 30px rgba(0,0,0,0.3);
   }
   .btn::before{
-    content:"";
-    position:absolute;
-    top:0; left:-100%;
-    width:50%;
-    height:100%;
+    content:""; position:absolute; top:0; left:-100%; width:50%; height:100%;
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4));
     transition: 0.6s;
   }
   .btn:hover::before{left:100%}
   .btn .btn-face{
-    width:68px;height:68px;
-    border-radius:50%;
+    width:68px;height:68px;border-radius:50%;
     background:linear-gradient(135deg,#fffaf0,#f0e6dc);
     border:3px solid rgba(255,255,255,0.4);
     box-shadow:0 8px 18px rgba(0,0,0,0.2), inset 0 4px 8px rgba(255,255,255,0.8);
     display:flex;align-items:center;justify-content:center;
-    font-size:29px;
-    color:#d4a373 !important;
-    flex-shrink:0;
+    font-size:29px;color:#d4a373 !important;flex-shrink:0;
   }
-  .btn .btn-face::before,
-  .btn .btn-face::after{
-    content:"";
-    position:absolute;
-    width:10px;height:10px;
-    border-radius:50%;
-    background:rgba(15,15,15,0.15);
-    box-shadow:inset 0 2px 0 rgba(255,255,255,0.6);
-  }
-  .btn .btn-face::before{left:21%;top:34%}
-  .btn .btn-face::after{right:21%;bottom:34%}
   .btn .label .title{font-size:17px;color:#2d1b1b}
   .btn .label .subtitle{font-size:13px;color:#5c3a3a;margin-top:5px}
-  footer{
-    margin-top:32px;
-    font-size:15px;
-    color:#ffffff;
-    font-weight:600;
-    letter-spacing:0.5px;
-  }
+  footer{margin-top:32px;font-size:15px;color:#ffffff;font-weight:600;letter-spacing:0.5px}
   .toast{
-    position:fixed;
-    left:50%;transform:translateX(-50%);
-    bottom:30px;
-    background:rgba(45,27,27,0.92);
-    color:#fff;
-    padding:14px 28px;
-    border-radius:30px;
-    font-size:14.5px;
-    opacity:0;
-    pointer-events:none;
-    transition:all .3s ease;
-    z-index:9999;
-    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    position:fixed;left:50%;transform:translateX(-50%);
+    bottom:30px;background:rgba(45,27,27,0.95);color:#fff;
+    padding:14px 32px;border-radius:30px;font-size:15px;
+    opacity:0;pointer-events:none;transition:all .3s ease;z-index:9999;
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
   }
   .toast.show{opacity:1;transform:translateX(-50%) translateY(-12px)}
-  .logo-fallback{
-    font-family:'Playfair Display',serif;
-    font-size:48px;
-    color:#d4a373;
-    font-weight:700;
-    margin:20px 0;
-    text-shadow: 0 4px 12px rgba(212,163,115,0.3);
-    display:none;
+
+  /* Modal QR Code Wi-Fi */
+  #wifiModal{
+    display:none;position:fixed;inset:0;background:rgba(0,0,0,0.95);
+    z-index:99999;align-items:center;justify-content:center;
+    padding:20px;flex-direction:column;
+  }
+  #wifiModal.show{display:flex;}
+  .qr-box{
+    background:white;padding:30px;border-radius:24px;text-align:center;
+    max-width:90%;box-shadow:0 20px 50px rgba(0,0,0,0.4);
+  }
+  .qr-box h2{margin:0 0 20px;color:#333;font-size:24px;font-family:'Montserrat',sans-serif;}
+  .qr-box img{width:100%;max-width:320px;border-radius:12px;}
+  .qr-box p{margin:20px 0 0;color:#555;font-size:15px;}
+  .close-qr{
+    margin-top:25px;padding:14px 36px;background:#d4a373;color:white;
+    border:none;border-radius:50px;font-size:16px;cursor:pointer;
+    font-weight:600;letter-spacing:0.5px;
   }
   @media (max-width:420px){
     .wrapper{padding:28px 18px}
     .btn .btn-face{width:60px;height:60px;font-size:26px}
     .logo img{width:240px}
-    .logo-fallback{font-size:40px}
   }
 </style>
 </head>
 <body>
+
   <main class="wrapper">
     <div class="logo">
       <img src="./logo.png" alt="Ilha Fashion" onerror="this.style.display='none'; document.querySelector('.logo-fallback').style.display='block';">
-      <div class="logo-fallback">Ilha Fashion</div>
-      <div class="owner-banner">
-        Danielly Fernandes – Moda & Acessórios
-      </div>
+      <div class="logo-fallback" style="font-family:'Playfair Display',serif;font-size:48px;color:#d4a373;font-weight:700;margin:20px 0;display:none;">Ilha Fashion</div>
+      <div class="owner-banner">Danielly Fernandes – Moda & Acessórios</div>
       <footer style="margin-top:8px;font-size:15px">Ilha Fashion - Vista-se de amor</footer>
     </div>
 
     <section class="links">
+
       <a class="btn" href="https://instagram.com/ilhafashiion" target="_blank" rel="noopener">
         <div class="btn-face"><i class="fab fa-instagram"></i></div>
         <div class="label">
@@ -200,6 +170,7 @@
           <div class="subtitle">@ilhafashiion</div>
         </div>
       </a>
+
       <a class="btn" href="https://wa.me/5527998942072" target="_blank" rel="noopener">
         <div class="btn-face"><i class="fab fa-whatsapp"></i></div>
         <div class="label">
@@ -207,13 +178,25 @@
           <div class="subtitle">+55 27 99894-2072</div>
         </div>
       </a>
+
+      <!-- PIX COM CPF (não aparece na tela) -->
       <button id="pixBtn" class="btn" type="button">
         <div class="btn-face"><i class="fas fa-money-bill-wave"></i></div>
         <div class="label">
           <div class="title">PIX</div>
-          <div class="subtitle">Copiar número para transferência</div>
+          <div class="subtitle">Toque para copiar a chave CPF</div>
         </div>
       </button>
+
+      <!-- WI-FI AUTOMÁTICO + QR CODE -->
+      <button id="wifiBtn" class="btn" type="button">
+        <div class="btn-face"><i class="fas fa-wifi"></i></div>
+        <div class="label">
+          <div class="title">Wi-Fi da Loja</div>
+          <div class="subtitle">Toque aqui e conecte automaticamente</div>
+        </div>
+      </button>
+
       <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Av.+Francisco+Pereira+de+Carvalho,+1872,+Guriri+Norte,+São+Mateus+-+ES,+29946-570" target="_blank" rel="noopener">
         <div class="btn-face"><i class="fas fa-map-marked-alt"></i></div>
         <div class="label">
@@ -221,35 +204,67 @@
           <div class="subtitle">Av. Francisco Pereira de Carvalho, 1872<br>Guriri Norte – CEP 29946-570</div>
         </div>
       </a>
+
     </section>
   </main>
 
-  <div id="toast" class="toast">PIX copiado!</div>
+  <div id="toast" class="toast">Chave PIX copiada!</div>
+
+  <!-- Modal QR Code Wi-Fi -->
+  <div id="wifiModal">
+    <div class="qr-box">
+      <h2>Wi-Fi da Loja</h2>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=WIFI:T:WPA;S:ilhafashiion;P:danielly2968;;" alt="QR Code Wi-Fi">
+      <p>Aponte a câmera do celular para conectar automaticamente</p>
+      <button class="close-qr" onclick="document.getElementById('wifiModal').classList.remove('show')">Fechar</button>
+    </div>
+  </div>
 
 <script>
   (function(){
     const pixBtn = document.getElementById('pixBtn');
+    const wifiBtn = document.getElementById('wifiBtn');
+    const wifiModal = document.getElementById('wifiModal');
     const toast = document.getElementById('toast');
-    const pixNumber = '27998942072';
-    function show(msg){
+
+    // CHAVE PIX = CPF (não aparece em lugar nenhum da página)
+    const pixKey = '12100489739';
+
+    function showToast(msg){
       toast.textContent = msg;
       toast.classList.add('show');
-      setTimeout(()=>toast.classList.remove('show'), 2200);
+      setTimeout(() => toast.classList.remove('show'), 2800);
     }
+
+    // PIX - copia apenas o CPF
     pixBtn.addEventListener('click', async () => {
-      try{
-        await navigator.clipboard.writeText(pixNumber);
-        show('PIX copiado: ' + pixNumber);
-      }catch{
+      try {
+        await navigator.clipboard.writeText(pixKey);
+        showToast('Chave PIX copiada! (CPF)');
+      } catch(err) {
         const ta = document.createElement('textarea');
-        ta.value = pixNumber;
-        ta.style.position='fixed'; ta.style.left='-9999px';
-        document.body.appendChild(ta); ta.select(); document.execCommand('copy');
+        ta.value = pixKey;
+        ta.style.position = 'fixed'; ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
         document.body.removeChild(ta);
-        show('PIX copiado: ' + pixNumber);
+        showToast('Chave PIX copiada! (CPF)');
       }
     });
+
+    // WI-FI AUTOMÁTICO + QR Code fallback
+    wifiBtn.addEventListener('click', () => {
+      const wifiUrl = 'wifi:?T=WPA&S=ilhafashiion&P=danielly2968';
+      window.location.href = wifiUrl;
+
+      setTimeout(() => {
+        wifiModal.classList.add('show');
+      }, 900);
+    });
+
   })();
 </script>
+
 </body>
 </html>
