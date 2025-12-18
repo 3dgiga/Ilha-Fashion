@@ -23,19 +23,19 @@
     justify-content:center;
     min-height:100vh;
     padding:20px;
-    background: linear-gradient(135deg,
-      #000000 0%,
-      #1a1208 20%,
-      #2d2010 40%,
-      #3f2e18 60%,
-      #6b4e2a 80%,
-      #d4a373 100%);
+
+    /* FUNDO COM IMAGEM fundo.jpg */
+    background-color:#000000;
+    background-image:url('fundo.jpg');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
   }
   .wrapper{
     width:100%;
     max-width:420px;
     text-align:center;
-    padding:36px 24px;
+    padding:32px 22px;
     border-radius:28px;
     background: rgba(255,255,255,0.18);
     backdrop-filter: blur(14px);
@@ -44,16 +44,15 @@
     border: 1px solid rgba(224,183,176,0.25);
   }
   .logo{
-    background: rgba(0,0,0,0.85);
-    padding: 20px 30px;
+    padding: 18px 26px;
     border-radius: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
   .logo img{
-    width:270px;
+    width:260px;
     max-width:90%;
     height:auto;
-    margin-bottom:15px;
+    margin-bottom:12px;
     filter: drop-shadow(0 6px 16px rgba(212,163,115,0.35));
     object-fit: contain;
     display: block;
@@ -68,16 +67,20 @@
     font-size:16px;
     letter-spacing:0.8px;
     padding:0;
-    margin-bottom:8px;
+    margin-bottom:6px;
   }
-  .links{display:flex;flex-direction:column;gap:20px}
+  .links{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
   .btn{
     position:relative;
     display:flex;
     align-items:center;
-    gap:16px;
-    padding:18px 22px;
-    border-radius:18px;
+    gap:12px;
+    padding:14px 18px;
+    border-radius:16px;
     text-decoration:none;
     color:#4a2c2c;
     font-weight:600;
@@ -89,15 +92,15 @@
     transition:all .4s cubic-bezier(0.34, 1.56, 0.64, 1);
     background: linear-gradient(135deg, #f5e1c1 0%, #e8c59a 30%, #e0b7b0 70%, #d9a68f 100%);
     box-shadow:
-      0 15px 35px rgba(180,120,100,0.4),
-      0 5px 15px rgba(0,0,0,0.2),
-      inset 0 -3px 8px rgba(0,0,0,0.15),
-      inset 0 3px 8px rgba(255,255,255,0.4);
+      0 12px 28px rgba(180,120,100,0.35),
+      0 4px 12px rgba(0,0,0,0.2),
+      inset 0 -3px 7px rgba(0,0,0,0.15),
+      inset 0 3px 7px rgba(255,255,255,0.4);
     transform: translateY(0) perspective(1000px) rotateX(2deg);
   }
   .btn:hover{
-    transform: translateY(-15px) perspective(1000px) rotateX(5deg) scale(1.03);
-    box-shadow: 0 35px 70px rgba(180,100,100,0.5), 0 15px 30px rgba(0,0,0,0.3);
+    transform: translateY(-10px) perspective(1000px) rotateX(4deg) scale(1.02);
+    box-shadow: 0 26px 52px rgba(180,100,100,0.45), 0 12px 24px rgba(0,0,0,0.3);
   }
   .btn::before{
     content:""; position:absolute; top:0; left:-100%; width:50%; height:100%;
@@ -106,16 +109,22 @@
   }
   .btn:hover::before{left:100%}
   .btn .btn-face{
-    width:68px;height:68px;border-radius:50%;
+    width:60px;
+    height:60px;
+    border-radius:50%;
     background:linear-gradient(135deg,#fffaf0,#f0e6dc);
     border:3px solid rgba(255,255,255,0.4);
-    box-shadow:0 8px 18px rgba(0,0,0,0.2), inset 0 4px 8px rgba(255,255,255,0.8);
-    display:flex;align-items:center;justify-content:center;
-    font-size:29px;color:#d4a373 !important;flex-shrink:0;
+    box-shadow:0 7px 16px rgba(0,0,0,0.2), inset 0 4px 8px rgba(255,255,255,0.8);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:26px;
+    color:#d4a373 !important;
+    flex-shrink:0;
   }
-  .btn .label .title{font-size:17px;color:#2d1b1b}
-  .btn .label .subtitle{font-size:13px;color:#5c3a3a;margin-top:5px}
-  footer{margin-top:32px;font-size:15px;color:#ffffff;font-weight:600;letter-spacing:0.5px}
+  .btn .label .title{font-size:16px;color:#2d1b1b}
+  .btn .label .subtitle{font-size:12px;color:#5c3a3a;margin-top:4px}
+  footer{margin-top:28px;font-size:15px;color:#ffffff;font-weight:600;letter-spacing:0.5px}
   .toast{
     position:fixed;left:50%;transform:translateX(-50%);
     bottom:30px;background:rgba(45,27,27,0.95);color:#fff;
@@ -125,7 +134,6 @@
   }
   .toast.show{opacity:1;transform:translateX(-50%) translateY(-12px)}
 
-  /* Modal QR Code Wi-Fi */
   #wifiModal{
     display:none;position:fixed;inset:0;background:rgba(0,0,0,0.95);
     z-index:99999;align-items:center;justify-content:center;
@@ -145,9 +153,9 @@
     font-weight:600;letter-spacing:0.5px;
   }
   @media (max-width:420px){
-    .wrapper{padding:28px 18px}
-    .btn .btn-face{width:60px;height:60px;font-size:26px}
-    .logo img{width:240px}
+    .wrapper{padding:24px 16px}
+    .btn .btn-face{width:54px;height:54px;font-size:24px}
+    .logo img{width:230px}
   }
 </style>
 </head>
@@ -179,7 +187,6 @@
         </div>
       </a>
 
-      <!-- PIX COM CPF (não aparece na tela) -->
       <button id="pixBtn" class="btn" type="button">
         <div class="btn-face"><i class="fas fa-money-bill-wave"></i></div>
         <div class="label">
@@ -188,7 +195,6 @@
         </div>
       </button>
 
-      <!-- WI-FI AUTOMÁTICO + QR CODE -->
       <button id="wifiBtn" class="btn" type="button">
         <div class="btn-face"><i class="fas fa-wifi"></i></div>
         <div class="label">
@@ -210,7 +216,6 @@
 
   <div id="toast" class="toast">Chave PIX copiada!</div>
 
-  <!-- Modal QR Code Wi-Fi -->
   <div id="wifiModal">
     <div class="qr-box">
       <h2>Wi-Fi da Loja</h2>
@@ -227,7 +232,6 @@
     const wifiModal = document.getElementById('wifiModal');
     const toast = document.getElementById('toast');
 
-    // CHAVE PIX = CPF (não aparece em lugar nenhum da página)
     const pixKey = '12100489739';
 
     function showToast(msg){
@@ -236,7 +240,6 @@
       setTimeout(() => toast.classList.remove('show'), 2800);
     }
 
-    // PIX - copia apenas o CPF
     pixBtn.addEventListener('click', async () => {
       try {
         await navigator.clipboard.writeText(pixKey);
@@ -253,7 +256,6 @@
       }
     });
 
-    // WI-FI AUTOMÁTICO + QR Code fallback
     wifiBtn.addEventListener('click', () => {
       const wifiUrl = 'wifi:?T=WPA&S=ilhafashiion&P=danielly2968';
       window.location.href = wifiUrl;
