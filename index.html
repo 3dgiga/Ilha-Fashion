@@ -66,13 +66,13 @@
       gap: 12px;
     }
 
-    /* logo 25% maior: 90px -> 112px */
+    /* Logo dobrada: 112px -> 224px, sem círculo */
     .avatar {
-      width: 112px;
-      height: 112px;
-      border-radius: 50%;
+      width: 185px;
+      height: 185px;
+      border-radius: 0; /* Remove círculo */
       overflow: hidden;
-      border: 2px solid rgba(255,255,255,.5);
+      /* Removeu: border: 2px solid rgba(255,255,255,.5); */
       box-shadow: 0 10px 25px rgba(0,0,0,.6);
       flex-shrink: 0;
       background-color: transparent;
@@ -102,7 +102,7 @@
       color: #f7e6d7;
     }
 
-    /* duas linhas, centralizado e no mesmo “círculo/pílula” */
+    /* duas linhas, centralizado e no mesmo "círculo/pílula" */
     .name-pill {
       margin-top: 8px;
       border-radius: 999px;
@@ -282,8 +282,8 @@
       }
 
       .avatar {
-        width: 96px;
-        height: 96px;
+        width: 180px;
+        height: 180px;
       }
     }
   </style>
