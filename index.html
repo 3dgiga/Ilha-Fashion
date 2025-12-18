@@ -58,23 +58,23 @@
       padding: 16px 14px 14px;
       background: radial-gradient(circle at top,#3b2720 0%,#1c130f 60%);
       margin-bottom: 20px;
+      text-align: center; /* Centraliza conteúdo */
     }
 
-    .profile-row {
+    /* Logo centralizada e sozinha */
+    .logo-section {
       display: flex;
-      align-items: center;
-      gap: 12px;
+      justify-content: center;
+      margin-bottom: 16px;
     }
 
-    /* Logo dobrada: 112px -> 224px, sem círculo */
+    /* Logo dobrada: 224px, sem círculo */
     .avatar {
-      width: 185px;
-      height: 185px;
-      border-radius: 0; /* Remove círculo */
+      width: 224px;
+      height: 224px;
+      border-radius: 0;
       overflow: hidden;
-      /* Removeu: border: 2px solid rgba(255,255,255,.5); */
       box-shadow: 0 10px 25px rgba(0,0,0,.6);
-      flex-shrink: 0;
       background-color: transparent;
     }
 
@@ -86,25 +86,16 @@
       background-color: transparent;
     }
 
-    .profile-text {
-      flex: 1;
+    /* Nome centralizado abaixo da logo */
+    .name-section {
       display: flex;
       flex-direction: column;
-      gap: 6px;
       align-items: center;
-      justify-content: center;
-    }
-
-    /* @ maior */
-    .username {
-      font-size: 15px;
-      font-weight: 600;
-      color: #f7e6d7;
+      gap: 8px;
     }
 
     /* duas linhas, centralizado e no mesmo "círculo/pílula" */
     .name-pill {
-      margin-top: 8px;
       border-radius: 999px;
       border: 1px solid #f1d1a8;
       padding: 6px 14px;
@@ -291,17 +282,18 @@
 <body>
   <div class="card">
     <div class="card-inner">
-      <div class="profile-row">
+      <!-- Logo centralizada -->
+      <div class="logo-section">
         <div class="avatar">
-          <!-- sua logo com fundo transparente -->
           <img src="logo.png" alt="Ilha Fashion - Moda Feminina">
         </div>
-        <div class="profile-text">
-          <div class="username">@ilhafashiion</div>
-          <div class="name-pill">
-            <span>Danielly Fernandes</span>
-            <span>Moda &amp; Acessórios</span>
-          </div>
+      </div>
+      
+      <!-- Nome abaixo da logo -->
+      <div class="name-section">
+        <div class="name-pill">
+          <span>Danielly Fernandes</span>
+          <span>Moda &amp; Acessórios</span>
         </div>
       </div>
     </div>
